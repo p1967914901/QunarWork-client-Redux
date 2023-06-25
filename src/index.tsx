@@ -1,5 +1,5 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import Demo from './demo';
+import App from './App';
 
-createRoot(document.getElementById('root') as Element).render(<Demo />);
+createRoot(document.getElementById('root') as Element).render(<App />);
