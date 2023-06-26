@@ -1,0 +1,79 @@
+$dateListWidth:calc(100vw - 85px);
+$dateItemWidth:calc($dateListWidth / 5);
+
+.date-bar {
+    display: flex;
+    align-items: stretch;
+    position: fixed;
+    top: 44px;
+    width: 100%;
+    height: 59px;
+    background-color: #1ba9ba;
+
+    .date-list {
+        width: $dateListWidth;
+        height: 100%;
+        overflow: hidden;
+        color: white;
+
+        .date-list-content {
+            width: calc($dateItemWidth * 9);
+            height: 100%;
+            transform: translateX(calc($dateItemWidth * (-2)));
+            display: flex;
+            justify-content: space-between;
+            
+            .date-item {
+                width: $dateItemWidth;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                height: 54px;
+                border-radius: 5px;
+
+                .d-text {
+                    margin: 0;
+                }
+            }
+
+            .active {
+                background-color: #e7f8fc;
+                color: #1ba9ba;
+            }
+        }
+
+        
+    }
+
+    .more-date {
+        width: 85px;
+        height: 39px;
+        text-align: center;
+        color: #D7FBFF;
+        padding: 10px 0;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 80%;
+            background-color: #fff;
+            width: 1px;
+            overflow: hidden;
+            opacity: 0.2;
+        }
+
+        .more-date-text {
+            height: 10px;
+            font-size: 12px;
+            margin: 0;
+        }
+    }
+
+}

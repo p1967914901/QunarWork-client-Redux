@@ -1,7 +1,6 @@
 .header {
     height: 44px;
     font-size: 18px;
-    line-height: 44px;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -10,16 +9,24 @@
     z-index: 100;
 
     .left-action {
-        left: 0;
+        display: inline-block;
         padding-left: 10px;
-        text-align: left;
         cursor: pointer;
-        font-size: 20px;
-        vertical-align: middle;
-        color: #7ff;
+        left: 0;
+        padding: 9px 12px;
+        position: absolute;
+    }
 
-        &::before {
-            content: "\F3CD";
-        }
+    .title {
+        display: inline-block;
+        line-height: 44px;
+        text-align: center;
+        color: #fff;
+        font-weight: 500;
+        margin: 0 60px;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
