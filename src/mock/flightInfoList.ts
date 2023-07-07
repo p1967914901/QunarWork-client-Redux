@@ -1,0 +1,109 @@
+export default [{
+    startTime: '06:55',
+    endTime: '10:30',
+    duration: '3时35分',
+    price: 150,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5720',
+    planeType: '波音737(中)'
+}, {
+    startTime: '10:30',
+    endTime: '15:35',
+    duration: '5时5分',
+    price: 160,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU9710',
+    planeType: '波音737(中)'
+}, {
+    startTime: '12:30',
+    endTime: '15:50',
+    duration: '3时20分',
+    price: 140,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5702',
+    planeType: '波音737(中)'
+}, {
+    startTime: '13:55',
+    endTime: '17:35',
+    duration: '3时40分',
+    price: 200,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5712',
+    planeType: '波音737(中)'
+}, {
+    startTime: '14:55',
+    endTime: '19:45',
+    duration: '4时50分',
+    price: 220,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU8759',
+    planeType: '波音737(中)'
+}, {
+    startTime: '16:30',
+    endTime: '19:50',
+    duration: '3时20分',
+    price: 150,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5806',
+    planeType: '波音737(中)'
+}, {
+    startTime: '18:55',
+    endTime: '22:30',
+    duration: '3时35分',
+    price: 190,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU6706',
+    planeType: '波音737(中)'
+}, {
+    startTime: '19:00',
+    endTime: '22:30',
+    duration: '3时30分',
+    price: 180,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航M7706',
+    planeType: '波音737(中)'
+}, {
+    startTime: '19:55',
+    endTime: '23:30',
+    duration: '3时35分',
+    price: 195,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5716',
+    planeType: '波音737(中)'
+}, {
+    startTime: '20:35',
+    endTime: '22:55',
+    duration: '2时20分',
+    price: 145,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5006',
+    planeType: '波音737(中)'
+}, {
+    startTime: '21:00',
+    endTime: '23:40',
+    duration: '2时40分',
+    price: 190,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5707',
+    planeType: '波音737(中)'
+}, {
+    startTime: '21:30',
+    endTime: '23:55',
+    duration: '2时25分',
+    price: 130,
+    startPosition: '北京大兴',
+    endPosition: '长水',
+    flight: '东航MU5708',
+    planeType: '波音737(中)'
+}]
