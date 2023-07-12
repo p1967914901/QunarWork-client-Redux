@@ -1,15 +1,14 @@
 import React from "react";
-import { useSelector } from 'react-redux';
+import { observer } from "mobx-react";
+import { useStore } from "../../hooks";
 
 import './index.scss';
 import goBackImg from '@/assets/go-back.png'; 
-import { selectCityInfo } from "../List/listSlice";
 
 
-export default function Header () {
+export default observer(() => {
     
-    const { startCity, endCity } = useSelector(selectCityInfo);
-
+    const { startCity, endCity } = useStore('list');
 
     return (
         <div className="header">
@@ -21,4 +20,4 @@ export default function Header () {
             </div>
         </div>
     )
-}
+})

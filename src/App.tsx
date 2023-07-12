@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { observer } from "mobx-react";
+import { useStore } from "./hooks";
 
 import Header from './components/Header';
 import DatePicker from "./components/DatePicker";
@@ -11,8 +12,9 @@ import { selectStatus } from "./components/List/listSlice";
 import { FETCH_FLIGHT_LIST_STATUS } from "./constant";
 import FlightServerError from "./components/FlightServerError";
 
-export default function App() {
-    const status = useSelector(selectStatus);
+export default observer(() => {
+    const { status } = useStore('list');
+    // const status = useSelector(selectStatus);
     const isShowFilter = useShowFilter();
     const isShowJumpTop = useShowJumpTop();
 
@@ -24,4 +26,4 @@ export default function App() {
         <Filter isShow={isShowFilter && status === FETCH_FLIGHT_LIST_STATUS.FULFILLED}/>
         <FlightServerError isShow={status !== FETCH_FLIGHT_LIST_STATUS.FULFILLED}/>
     </React.Fragment>;
-}    
+})

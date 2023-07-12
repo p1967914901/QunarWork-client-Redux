@@ -1,4 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { MobXProviderContext } from 'mobx-react';
+import { Store } from '../store';
+
+export function useStore<T extends typeof Store, V extends keyof T>(name: V): T[V] {
+    const store = useContext(MobXProviderContext) as T;
+    return store[name]
+}
+    
 
 export const useMount = (fn: () => void) => {
     // 判断一下，传如的 fn 是否是一个函数

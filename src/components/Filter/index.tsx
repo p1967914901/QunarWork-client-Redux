@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { sortByPrice, sortByRecommend, sortByTime } from "../List/listSlice";
+import { observer } from "mobx-react";
+import { useStore } from "../../hooks";
 
 import './index.scss';
 
@@ -15,13 +15,12 @@ interface FilterPropsType {
     isShow: boolean;
 }
 
-export default function Filter (props:FilterPropsType) {
+export default observer((props:FilterPropsType) => {
     const [rankTypeBySelect, setRankTypeBySelect] = useState<'recommend' | 'time' | 'price'>('recommend');
     const [priceFilterText, setPriceFilterText] = useState<'价格' | '从低到高' | '从高到低'>('价格');
     const [timeFilterText, setTimeFilterText] = useState<'时间' | '从早到晚' | '从晚到早'>('时间');
 
-    const dispatch = useDispatch();
-
+    const store = useStore('list');
     const { isShow } = props;
 
     const handleClickRecommend = () => {
@@ -31,7 +30,7 @@ export default function Filter (props:FilterPropsType) {
             setTimeFilterText('时间');
         }
         setRankTypeBySelect('recommend');
-        dispatch(sortByRecommend());
+        store.sortByRecommend();
     }
 
     const handleClickTime = () => {
@@ -42,10 +41,10 @@ export default function Filter (props:FilterPropsType) {
         
         if (['时间', '从晚到早'].includes(timeFilterText)) {
             setTimeFilterText('从早到晚');
-            dispatch(sortByTime({isAscending: true}));
+            store.sortByTime(true);
         } else {
             setTimeFilterText('从晚到早');
-            dispatch(sortByTime({isAscending: false}));
+            store.sortByTime(false);
         }
     }
 
@@ -56,10 +55,10 @@ export default function Filter (props:FilterPropsType) {
         setRankTypeBySelect('price');
         if (['价格', '从高到低'].includes(priceFilterText)) {
             setPriceFilterText('从低到高');
-            dispatch(sortByPrice({isAscending: true}));
+            store.sortByPrice(true);
         } else {
             setPriceFilterText('从高到低');
-            dispatch(sortByPrice({isAscending: false}));
+            store.sortByPrice(false);
         }
     }
 
@@ -85,4 +84,4 @@ export default function Filter (props:FilterPropsType) {
             </div>
         </div>
     ) 
-}
+})

@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { observer } from "mobx-react";
+import { useStore } from "../../hooks";
 
 import { fetchFlightList, selectAllFlightList, selectCityInfo, selectDate, selectFetchFlightInfoStatus } from './listSlice';
 import './index.scss';
+import axios from '../../untils/axios';
 
 
-export default function List () {
-    const dispatch = useDispatch()
-    const flightInfoList = useSelector(selectAllFlightList);
-    // const fetchFlightInfoStatus = useSelector(selectFetchFlightInfoStatus);
-    const date = useSelector(selectDate);
-    const { startCity, endCity } = useSelector(selectCityInfo);
+export default observer(() => {
+    const store = useStore('list');
+    const { date, startCity, endCity, data: flightInfoList } = store;
   
     useEffect(() => {
-
-        dispatch(fetchFlightList({ date, startCity, endCity }) as any);
-    }, [dispatch, date, startCity, endCity]);
+        axios.get('/list', { params: { date, startCity, endCity } })
+            .then(res => {
+                store.setFlightInfoList(res.data.data);
+            })
+    }, [date, startCity, endCity]);
 
     return (
         <ul className="list-container">
@@ -62,4 +63,4 @@ export default function List () {
             }
         </ul>
     )
-}
+})
