@@ -8,7 +8,6 @@ import List from "./components/List";
 import { useShowFilter, useShowJumpTop } from "./hooks";
 import Filter from "./components/Filter";
 import JumpTop from "./components/JumpTop";
-import { selectStatus } from "./components/List/listSlice";
 import { FETCH_FLIGHT_LIST_STATUS } from "./constant";
 import FlightServerError from "./components/FlightServerError";
 

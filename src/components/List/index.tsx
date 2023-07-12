@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import { useStore } from "../../hooks";
 
-import { fetchFlightList, selectAllFlightList, selectCityInfo, selectDate, selectFetchFlightInfoStatus } from './listSlice';
 import './index.scss';
 import axios from '../../untils/axios';
 
