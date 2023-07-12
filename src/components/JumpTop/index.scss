@@ -1,0 +1,49 @@
+.go-top {
+    position: fixed;
+    right: 20px;
+    bottom: 120px;
+    width: 42px;
+    font-size: 12px;
+    height: 42px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    color: #888;
+    border: 1px solid rgba(197, 197, 197, 0.3);
+
+    .top-line {
+        width: 12px;
+        height: 2px;
+        margin: 5px auto 2px;
+        background-color: #888;
+    }
+
+    .middle-line {
+        width: 2px;
+        margin: 0 auto;
+        height: 12px;
+        background-color: #888;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-top: 2px solid #888;
+            border-right: 2px solid #888;
+            transform: rotate(-45deg);
+            transform-origin: left bottom;
+            position: relative;
+            right: -1px;
+            top: -4px;
+        }
+    }
+
+    .go-top-text {
+        transform: scale(0.92);
+    }
+}
+
+.hide {
+    display: none;
+}

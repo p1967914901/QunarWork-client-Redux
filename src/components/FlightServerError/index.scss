@@ -1,0 +1,21 @@
+.flight-server-err {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 180px;
+
+    img {
+        width: 120px;
+        margin-bottom: 30px;
+    }
+
+    .flight-server-err-text {
+        color: rgb(85, 85, 85); 
+        font-size: 14px;
+    }
+}
+
+.hide {
+    display: none;
+}

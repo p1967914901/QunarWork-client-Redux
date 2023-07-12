@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import Header from './components/Header';
 import DatePicker from "./components/DatePicker";
 import List from "./components/List";
-import { useResize } from "./hooks";
+import { useShowFilter, useShowJumpTop } from "./hooks";
+import Filter from "./components/Filter";
+import JumpTop from "./components/JumpTop";
+import { selectStatus } from "./components/List/listSlice";
+import { FETCH_FLIGHT_LIST_STATUS } from "./constant";
+import FlightServerError from "./components/FlightServerError";
 
 export default function App() {
-    const [depCity, setDepCity] = useState<string>('北京');
-    const [arrCity, setArrCity] = useState<string>('杭州');
-    const [date, setDate] = useState<string>('07-05');
+    const status = useSelector(selectStatus);
+    const isShowFilter = useShowFilter();
+    const isShowJumpTop = useShowJumpTop();
 
-    useResize();
-    // console.log(a)
     return <React.Fragment>
-        <Header depCity={depCity} arrCity={arrCity} />
-        <DatePicker date={date} />
+        <Header />
+        <DatePicker />
         <List />
+        <JumpTop isShow={isShowJumpTop && status === FETCH_FLIGHT_LIST_STATUS.FULFILLED} />
+        <Filter isShow={isShowFilter && status === FETCH_FLIGHT_LIST_STATUS.FULFILLED}/>
+        <FlightServerError isShow={status !== FETCH_FLIGHT_LIST_STATUS.FULFILLED}/>
     </React.Fragment>;
 }    

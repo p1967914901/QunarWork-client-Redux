@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 
+import { fetchFlightList, selectAllFlightList, selectCityInfo, selectDate, selectFetchFlightInfoStatus } from './listSlice';
 import './index.scss';
 
-import flightInfoList from '../../mock/flightInfoList';
 
 export default function List () {
+    const dispatch = useDispatch()
+    const flightInfoList = useSelector(selectAllFlightList);
+    // const fetchFlightInfoStatus = useSelector(selectFetchFlightInfoStatus);
+    const date = useSelector(selectDate);
+    const { startCity, endCity } = useSelector(selectCityInfo);
+  
+    useEffect(() => {
+
+        dispatch(fetchFlightList({ date, startCity, endCity }) as any);
+    }, [dispatch, date, startCity, endCity]);
 
     return (
         <ul className="list-container">

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const useMount = (fn: () => void) => {
     // 判断一下，传如的 fn 是否是一个函数
@@ -12,16 +12,48 @@ export const useMount = (fn: () => void) => {
     }
 };
 
-export const useResize = () => {
-    const resizeHandle = () => {
-        console.log(window.innerHeight)
-        document.getElementById('root')!.style.setProperty('height', `${window.innerHeight}px`);
+export const useShowFilter = () => {
+    const [isShow, setIsShow] = useState(true);
+
+    const scrollHandle = () => {
+        setIsShow(false);
+        clearTimeout(timer!);
+        timer = setTimeout(() => {
+            setIsShow(true);
+        }, 500);
     }
+    let timer = null;
+
     useEffect(() => {
-        resizeHandle();
-        window.addEventListener('resize', resizeHandle);
-        return ()=> {
-            window.removeEventListener('resize', resizeHandle);
+        window.addEventListener('scroll', scrollHandle);
+
+        return () => {
+            window.removeEventListener('scroll', scrollHandle);
         }
-    }, []);
+    });
+
+    return isShow;
+}
+
+export const useShowJumpTop = () => {
+    const [isShow, setIsShow] = useState(false);
+
+    const scrollHandle = () => {
+        if (scrollY === 0) {
+            setIsShow(false);
+        } else {
+            setIsShow(true);
+        }
+    }
+    let timer = null;
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollHandle);
+
+        return () => {
+            window.removeEventListener('scroll', scrollHandle);
+        }
+    });
+
+    return isShow;
 }

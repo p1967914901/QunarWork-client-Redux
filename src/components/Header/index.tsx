@@ -1,20 +1,15 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 
 import './index.scss';
 import goBackImg from '@/assets/go-back.png'; 
-import { useMount } from '../../hooks';
+import { selectCityInfo } from "../List/listSlice";
 
-interface HeaderPropsType {
-    depCity: string;
-    arrCity: string;
-}
 
-export default function Header (props: HeaderPropsType) {
-    const { depCity, arrCity } = props;
+export default function Header () {
+    
+    const { startCity, endCity } = useSelector(selectCityInfo);
 
-    useMount(() => {
-        console.log(location)
-    });
 
     return (
         <div className="header">
@@ -22,7 +17,7 @@ export default function Header (props: HeaderPropsType) {
                 <img src={goBackImg}/>
             </div>
             <div className="title">
-                {depCity + ' -> ' + arrCity}
+                {startCity && endCity ? startCity + ' → ' + endCity : '请选择起点和终点'}
             </div>
         </div>
     )

@@ -1,4 +1,8 @@
 # Qunar 前端入职作业
+
+- **node: v16.19.1**
+- 地址：http://localhost:3000/?date=2023-09-08&startCity=北京&&endCity=昆明
+- 参数：`date`(可选)、`startCity`(必选)、`endCity`(必选)
 ## 业务系统移动前端开发
 
 1. 实现移动端页面，要实现的功能请参照（[https://m.flight.qunar.com/h5/flight/](https://m.flight.qunar.com/h5/flight/)）中点击搜索后的机票列表页，参照效果图如下：

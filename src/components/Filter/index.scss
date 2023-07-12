@@ -1,0 +1,31 @@
+.list-filter {
+    background: #f8f8f8;
+    font-size: 12px;
+    height: 48px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgba(197, 197, 197, 0.3);
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    transition: .3s;
+    z-index: 3;
+
+    .rank {
+        width: calc(100% / 3);
+        align-items: center;
+        color: #999;
+        line-height: 48px;
+        text-align: center;
+    }
+
+    .active {
+        color: #1ba9ba;
+    }
+}
+
+.hide {
+    bottom: -48px;
+}
